@@ -1,0 +1,97 @@
+.tooltip {
+  @include absolute($z: 10);
+  @include invisible;
+  @include font($fs: 12px, $lh: 22px, $c: $c-white);
+  padding: 10px;
+  width: 200px;
+  border-radius: 3px;
+  text-align: left;
+  transition: bottom $t-std, top $t-std;
+  display: none;
+  background: $c-dark-bg;
+  white-space: break-spaces;
+  text-transform: none;
+
+  &-parent {
+    position: relative;
+  }
+
+  &.active {
+    display: block;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    bottom: calc(100% - 10px);
+  }
+
+  &::before {
+    @include absolute($b: -5px, $l: 10px);
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: $c-dark-bg;
+    transform: rotate(45deg);
+  }
+
+  &__holder {
+    @include absolute($l: 0, $r: 0);
+    content: '';
+    display: block;
+  }
+
+  &__btn {
+    position: relative;
+    padding: 0;
+    border-radius: 50%;
+    height: auto;
+    transition: background-color $t-std, box-shadow $t-std;
+    display: inline-flex;
+
+    &:hover,
+    &:focus {
+      background-color: $c-text-05;
+
+      .tooltip {
+        animation: fadeInDown $t-std forwards;
+        visibility: visible;
+        display: block;
+        bottom: calc(100% + 10px);
+      }
+    }
+  }
+
+  &--right-md {
+    right: -10px;
+
+    @include media-md {
+      right: auto;
+      left: -10px;
+    }
+
+    &::before {
+      right: 10px;
+      left: auto;
+
+      @include media-md {
+        left: 10px;
+        right: auto;
+      }
+    }
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

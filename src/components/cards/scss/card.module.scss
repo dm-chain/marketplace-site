@@ -1,0 +1,52 @@
+.card {
+  @include flex($ai: stretch, $fd: column);
+  position: relative;
+  border-radius: $br-lg;
+  border: 1px solid $c-disabled-text;
+
+  &__header,
+  &__body,
+  &__content,
+  &__footer {
+    width: 100%;
+  }
+
+  &__content {
+    //z-index: -1;
+  }
+
+  &__header {
+    @include flex($ai: center);
+    padding: 24px;
+  }
+
+  &__body {
+    margin-bottom: 15px;
+    min-height: 115px;
+    max-height: 400px;
+  }
+
+  &__timer {
+    @include absolute($b: 8px, $l: 8px);
+  }
+
+  &__link {
+    @include absolute($t: 0, $b: 0, $r: 0, $l: 0);
+    z-index: 2;
+  }
+
+  animation: fadeIn 0.4s ease;
+}
+
+@import 'card-types';
+@import 'card-content';
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

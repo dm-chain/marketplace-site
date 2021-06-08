@@ -1,0 +1,9 @@
+.block__footer {
+  @include flex($jc: center);
+  margin-top: 32px;
+
+  @include media-sm {
+    margin-top: 0;
+    display: none;
+  }
+}

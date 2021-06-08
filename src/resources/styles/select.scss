@@ -1,0 +1,136 @@
+.select {
+  flex-shrink: 0;
+  width: 100%;
+  height: 36px;
+  @include font($fs: 14px, $lh: 1.4, $fw: 400, $c: $c-black);
+  max-width: 300px;
+
+  &.select--is-disabled {
+    background-color: rgba($c-disabled-text, 0.05);
+
+    .select__control {
+      border-color: $c-disabled-text;
+
+      svg path {
+        fill: $c-disabled-text;
+      }
+    }
+  }
+
+  .select__control {
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid $c-text;
+    padding: 8px 15px;
+    border-radius: $br-lg;
+    transition: background, border-color $t-std;
+    @include outline;
+    max-height: 100%;
+    box-shadow: none;
+    background-color: transparent;
+
+    @include hover {
+      border-color: $c-text;
+    }
+
+    &--menu-is-open {
+      .select__indicator {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  &--md {
+    height: 52px;
+    max-width: none;
+
+    .select__control {
+      padding: 15px 24px;
+    }
+  }
+
+  .select__input {
+    input {
+      font: inherit;
+      text-transform: uppercase;
+      text-overflow: ellipsis;
+
+      &:focus-visible {
+        box-shadow: none;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .select__value-container {
+    padding: 0;
+
+    div:last-child {
+      width: auto;
+      min-width: 50%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .select__single-value {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .select__indicator {
+    transition: transform $t-std;
+    color: $c-text;
+    padding: 0;
+
+    &-separator {
+      display: none;
+    }
+
+    &:hover {
+      color: $c-text;
+    }
+  }
+
+  .select__menu {
+    @include font($fs: 14px, $lh: 24px, $c: $c-text);
+    animation: menuShow $t-std;
+    margin-top: 3px;
+    box-shadow: 0 6px 10px rgba(98, 112, 143, 0.06), 0 1px 18px rgba(98, 112, 143, 0.04),
+      0 3px 5px rgba(98, 112, 143, 0.08);
+    z-index: 10;
+  }
+
+  .select__option {
+    @include font($fs: 14px, $lh: 24px);
+    display: inline-flex;
+    padding: 7px 15px;
+    width: 100%;
+    transition: color $t-std;
+    background-color: $c-white;
+    color: $c-text;
+
+    @include hover {
+      background-color: $c-light-bg;
+      color: $c-text;
+      cursor: pointer;
+    }
+
+    &.focus {
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes menuShow {
+  0% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

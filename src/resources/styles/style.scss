@@ -1,0 +1,18 @@
+@import 'normalize';
+//@import "mixins";
+//@import "variables";
+
+@import 'fonts';
+@import 'typography';
+@import 'common';
+
+@import 'animations';
+@import 'select';
+
+//plugins
+@import '../../../node_modules/react-multi-carousel/lib/styles.css';
+
+// import '../../../node_modules/react-toastify/dist/ReactToastify.css';
+// minified version is also included
+@import '../../../node_modules/react-toastify/dist/ReactToastify.min.css';
+@import 'tostify';

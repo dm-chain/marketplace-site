@@ -1,0 +1,135 @@
+.create {
+  &__title {
+    @include font($fs: 32px, $lh: 1.2, $fw: 500);
+  }
+
+  &__item {
+    margin-top: 40px;
+
+    &--preview {
+      @include media-lg {
+        display: none;
+      }
+    }
+  }
+
+  &__label {
+    @include font($fs: 14px, $lh: 1.6, $fw: 600);
+    margin-bottom: 8px;
+
+    &--light {
+      color: $c-disabled-text;
+      font-weight: normal;
+      margin-left: 4px;
+    }
+  }
+
+  &__file {
+    width: 100%;
+    height: 200px;
+    border: 1px dashed $c-text;
+    border-radius: $br-lg;
+    color: $c-disabled-text;
+
+    &--error {
+      border-color: $c-error;
+      color: $c-error;
+    }
+  }
+
+  &__file-label {
+    @include flex($jc: center, $fd: column);
+    height: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__file-input {
+    display: none;
+  }
+
+  &__file-text {
+    @include font($fs: 14px, $lh: 1.6);
+    margin-bottom: 8px;
+  }
+
+  &__file-preview {
+    @include flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    video,
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__file-btn {
+    &--error {
+      border-color: $c-error;
+      color: $c-error;
+
+      &:not([disabled]) {
+        @include hover {
+          border-color: $c-error;
+          color: $c-error;
+
+          &:before {
+            background-color: rgba($c-error, 0.05);
+          }
+        }
+
+        &:active,
+        &:focus {
+          border-color: $c-error;
+          color: $c-error;
+        }
+      }
+    }
+  }
+
+  &__file-edit-btn {
+    @include absolute($t: 12px, $r: 12px);
+    padding: 5px;
+  }
+
+  &__control-group {
+    @include flex;
+
+    .create__control {
+      padding-top: 0;
+
+      + .create__control {
+        margin-top: 0;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__preview-def {
+    height: 490px;
+    border: 1px solid $c-text;
+    border-radius: $br-lg;
+    @include flex($ai: center, $jc: center);
+    padding: 75px;
+    @include font($fs: 14px, $lh: 1.6, $c: $c-disabled-text);
+    text-align: center;
+  }
+
+  &__loader {
+    @include fixed(0, 0, 0, 0, 205);
+    @include flex($jc: center);
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__disclaimer {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b6b6b;
+    margin-top: 33px;
+  }
+}

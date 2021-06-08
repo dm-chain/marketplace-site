@@ -1,0 +1,78 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+h1,
+h2,
+.h1-style,
+.h2-style {
+  font-weight: 500;
+}
+
+h3,
+h4,
+.h3-style,
+.h4-style {
+  font-weight: 500;
+}
+
+h1,
+.h1-style {
+  @include font($fs: 44px, $lh: 1.1, $ls: -0.03em);
+  margin-bottom: 20px;
+
+  @include media-sm {
+    @include font($fs: 74px, $lh: 1);
+    margin-bottom: 30px;
+  }
+}
+
+h2,
+.h2-style {
+  @include font($fs: 32px, $lh: 1.2, $ls: -0.02em);
+
+  @include media-sm {
+    @include font($fs: 44px, $lh: 1.1);
+  }
+}
+
+h3,
+.h3-style {
+  @include font($fs: 26px, $lh: 36px);
+  margin-bottom: 10px;
+
+  @include media-sm {
+    @include font($fs: 36px, $lh: 46px);
+  }
+}
+
+h4,
+.h4-style {
+  @include font($fs: 20px, $lh: 30px);
+
+  @include media-sm {
+    @include font($fs: 24px, $lh: 34px);
+  }
+}
+
+h5 {
+  @include font($fs: 15px, $lh: 25px);
+}
+
+h6 {
+  @include font($fs: 10px, $lh: 18px);
+}
+
+p {
+  font-size: 14px;
+  line-height: 24px;
+
+  @include media-sm {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}

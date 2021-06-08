@@ -1,0 +1,122 @@
+.content {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  height: auto;
+  opacity: 0;
+  animation: fadeIn 0.3s 0.3s ease forwards;
+
+  @include media-lg {
+    padding-top: 180px;
+  }
+
+  &--topline {
+    padding-top: 180px;
+
+    @include media-lg {
+      padding-top: 220px;
+    }
+  }
+
+  p, li {
+    @include font($fs: 14px, $lh: 1.6);
+  }
+
+  h1 {
+    @include font($fs: 32px, $lh: 1.2, $ls: -0.02em);
+
+    @include media-sm {
+      @include font($fs: 44px, $lh: 1.1);
+    }
+  }
+
+  h2 {
+    @include font($fs: 26px, $lh: 36px);
+
+    @include media-sm {
+      @include font($fs: 36px, $lh: 46px);
+    }
+
+    &:not(:first-child) {
+      margin-top: 40px;
+      margin-bottom: 20px;
+
+      @include media-lg {
+        margin-top: 60px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  h3 {
+    @include font($fs: 18px, $lh: 1.4);
+    margin-bottom: 0;
+    display: block;
+
+    &:not(:first-child) {
+      margin-top: 32px;
+    }
+  }
+
+  a {
+    color: $c-text;
+    border-bottom: 1px solid;
+
+    @include hover {
+      color: $c-brand;
+      border-color: $c-brand;
+    }
+  }
+
+  img {
+    display: block;
+    border: 1px solid $c-text;
+    border-radius: $br-lg;
+    margin: 32px 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+
+    li {
+      padding: 0 0 0 20px;
+      position: relative;
+
+      &:before {
+        @include absolute($t: 8px, $l: 8px);
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: $c-text;
+      }
+
+      + li {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

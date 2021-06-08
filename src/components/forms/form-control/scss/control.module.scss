@@ -1,0 +1,85 @@
+.control {
+  @include font($fs: 14px, $lh: 1.6, $fw: 400);
+  height: 52px;
+  width: 100%;
+  border: 1px solid $c-text;
+  padding: 15px 24px;
+  border-radius: $br-lg;
+  transition: background $t-std, border-color $t-std, color $t-std;
+  background-color: transparent;
+  @include outline;
+
+  @include hover {
+    background-color: rgba($c-white, 0.25);
+  }
+
+  &:active {
+    background-color: rgba($c-white, 0.25);
+  }
+
+  &::placeholder {
+    color: rgba($c-text, 0.5);
+  }
+
+  &:disabled {
+    background-color: rgba($c-disabled-text, 0.05);
+    border-color: $c-disabled-text;
+  }
+
+  &-row {
+    @include flex($ai: flex-end);
+    width: 100%;
+  }
+
+  &--group {
+    width: 200px;
+    margin-top: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+
+    @include media-sm {
+      width: 240px;
+    }
+  }
+
+  &--suffix {
+    padding-right: 130px;
+  }
+
+  &--textarea {
+    height: 100px;
+  }
+}
+
+.errorMsg {
+  //@include absolute($l: 0, $b: -21px);
+  @include font($fs: 10px, $c: $c-error);
+  white-space: nowrap;
+  animation: fadeIn $t-std;
+
+  @include media-sm {
+    font-size: 12px;
+  }
+}
+
+.error {
+  border-color: $c-error;
+  background: rgba($c-error, 0.1);
+  color: $c-error;
+
+  &::placeholder {
+    color: $c-error;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+

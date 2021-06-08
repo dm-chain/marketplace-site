@@ -1,0 +1,99 @@
+.content {
+  @include font($fs: 14px, $lh: 1.6);
+
+  span {
+    @include font($fs: 10px, $lh: 1.4, $ls: 0.02em);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  &__title {
+    @include font($fs: 32px, $lh: 1.2, $fw: 500, $ls: -0.02em);
+    margin: 0;
+  }
+
+  span {
+    display: block;
+    @include font($fs: 10px, $lh: 14px);
+    margin-bottom: 4px;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+
+      @include media-lg {
+        margin-top: 65px;
+      };
+    }
+  }
+
+  p {
+    @include font($fs: 14px, $lh: 1.6);
+  }
+
+  h3 {
+    @include font($fs: 18px, $lh: 1.4);
+    margin-bottom: 0;
+    display: block;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+
+      @include media-lg {
+        margin-top: 32px;
+      }
+    }
+  }
+
+  a {
+    color: $c-text;
+    border-bottom: 1px solid;
+
+    @include hover {
+      color: $c-brand;
+      border-color: $c-brand;
+    }
+  }
+
+  img {
+    display: block;
+    border: 1px solid $c-text;
+    border-radius: $br-lg;
+    margin: 32px 0;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+
+    li {
+      padding: 0 0 0 20px;
+      position: relative;
+
+      &:before {
+        @include absolute($t: 8px, $l: 8px);
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: $c-text;
+      }
+
+      + li {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
+}

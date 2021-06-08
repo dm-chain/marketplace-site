@@ -1,0 +1,31 @@
+.block__head {
+  margin-bottom: 32px;
+  text-align: center;
+
+  @include media-sm {
+    text-align: left;
+  }
+
+  h2 {
+    @include font($fs: 32px, $lh: 1.2, $fw: 500);
+  }
+
+  &-row {
+    margin-top: 32px;
+    @include flex($ai: flex-start, $jc: space-between);
+  }
+
+  &-col {
+    &:first-child {
+      margin-right: 30px;
+    }
+
+    &:last-child {
+      display: none;
+
+      @include media-sm {
+        display: block;
+      }
+    }
+  }
+}

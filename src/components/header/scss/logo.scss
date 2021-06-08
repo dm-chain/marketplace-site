@@ -1,0 +1,19 @@
+@import './_theme';
+
+.logo {
+  display: flex;
+  align-items: center;
+  width: 120px;
+
+  &--link {
+    cursor: pointer;
+  }
+
+  @each $mod, $data in $theme {
+    &--#{$mod} {
+      path {
+        fill: map-get($data, 'text');
+      }
+    }
+  }
+}

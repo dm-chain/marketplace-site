@@ -1,0 +1,46 @@
+@import '../../scss/theme';
+
+.menu {
+  @include list-reset;
+  @include flex($ai: center);
+  margin-bottom: 0;
+
+  &__item {
+    &:first-child {
+      .menu__link {
+        padding-left: 0;
+      }
+    }
+
+    &:last-child {
+      .menu__link {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    @include font($fs: 14px, $fw: 500);
+    padding: 0 16px;
+    transition: none;
+
+    @include hover {
+      cursor: pointer;
+    }
+
+    @each $mod, $data in $theme {
+      &--#{$mod} {
+        color: map-get($data, 'text');
+      }
+    }
+
+    &--icon {
+      @include flex($ai: center);
+    }
+  }
+
+  &__icon {
+    margin-left: 8px;
+    @include flex($ai: center);
+  }
+}

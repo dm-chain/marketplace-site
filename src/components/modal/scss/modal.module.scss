@@ -1,0 +1,309 @@
+.modal {
+  @include fixed($b: 0, $r: 0, $l: 0, $t: 0, $z: 200);
+  @include flex($ai: stretch, $jc: center);
+  width: 100%;
+  @include invisible;
+  overflow-y: auto;
+
+  @include media-sm {
+    height: 100%;
+  }
+
+  &__overlay {
+    @include flex($ai: center, $jc: center);
+    margin: auto;
+    background-color: rgba($c-text, 0.9);
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+
+    @include media-sm {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    @include ie-support {
+      height: 100%;
+    }
+  }
+
+  &.show {
+    @include visible;
+    opacity: 1;
+
+    .modal__popup {
+      animation: showPopup 0.2s ease;
+    }
+
+    .modal__close {
+      animation: fadeIn 0.2s 0.1s ease forwards;
+    }
+  }
+
+  &.out {
+    .modal__overlay {
+      animation: fadeOut 0.2s $easeInQuart forwards;
+    }
+
+    .modal__popup {
+      animation: fadeOutUp 0.2s ease forwards;
+    }
+  }
+
+  &__close {
+    @include flex($ai: center, $jc: center);
+    @include absolute($t: 14px, $r: 14px);
+    padding: 3px;
+    z-index: 201;
+    border-radius: $br-std;
+    transition: background-color $t-std;
+    opacity: 0;
+
+    svg {
+      pointer-events: none;
+
+      path {
+        fill: $c-text;
+      }
+    }
+
+    @include hover {
+      background: rgba($c-text, 0.05);
+    }
+
+    &:focus {
+      background: rgba($c-text, 0.05);
+    }
+
+    &:active {
+      background: rgba($c-text, 0.1);
+    }
+
+    &:disabled {
+      fill: $c-disabled-text;
+    }
+  }
+
+  &__popup {
+    @include flex($fd: column);
+    position: relative;
+    margin-top: auto;
+    width: 100%;
+    color: $c-text;
+    z-index: 201;
+
+    @include media-sm {
+      flex-basis: 380px;
+      margin: auto;
+    }
+  }
+
+  &__content {
+    background-color: $c-light-bg;
+    border-radius: $br-lg;
+    width: 100%;
+    position: relative;
+
+    @include media-sm {
+      min-width: 460px;
+      width: 460px;
+    }
+
+    &.hide {
+      animation: fadeOut 0.1s ease forwards;
+    }
+  }
+
+  &__header {
+    padding: 30px 60px 30px 30px;
+    border-bottom: 1px solid $c-disabled-text;
+  }
+
+  &__title {
+    @include font($fs: 32px, $lh: 1.2, $fw: 500);
+  }
+
+  &__main {
+    padding: 30px;
+
+    &--center {
+      @include flex($jc: center);
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid $c-disabled-text;
+    padding: 30px;
+  }
+
+  &__main-content {
+    @include font($fs: 18px, $lh: 1.4, $c: $c-text);
+    word-break: break-word;
+
+    a:not([class]) {
+      @include font($fs: 18px, $lh: 1.4, $c: $c-text);
+      border-bottom: 1px solid $c-text;
+
+      @include hover {
+        color: $c-brand;
+        border-color: $c-brand;
+      }
+    }
+
+    b {
+      font-weight: 500;
+    }
+
+    &--sm,
+    &--sm a {
+      @include font($fs: 14px, $lh: 1.6, $c: $c-text);
+    }
+  }
+
+  &__btn-row {
+    @include flex;
+    margin-top: 32px;
+
+    .modal__btn {
+      width: auto;
+      flex: 1;
+
+      + .modal__btn {
+        margin-top: 0;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__btn {
+    margin-top: 32px;
+    width: 100%;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    + .modal__btn {
+      margin-top: 16px;
+    }
+  }
+
+  &__field {
+    margin-top: 60px;
+
+    &--sm {
+      margin-top: 30px;
+    }
+  }
+
+  &__info {
+    margin-top: 16px;
+    @include font($fs: 14px, $lh: 1.6, $c: $c-disabled-text);
+  }
+
+  &__checkbox {
+    margin-top: 32px;
+
+    + .modal__checkbox {
+      margin-top: 16px;
+    }
+  }
+
+  &__response {
+    color: $c-white;
+    width: 100%;
+    opacity: 0;
+    @include absolute($z: -1);
+    transform: translateY(30px);
+
+    @include media-md {
+      width: 390px;
+    }
+
+    &.show {
+      z-index: 200;
+      animation: fadeInUp 0.3s 0.3s ease forwards;
+    }
+
+    .btn {
+      margin-top: 60px;
+    }
+  }
+
+  &__description {
+    @include font($fs: 14px, $lh: 1.6, $c: $c-disabled-text);
+    margin-top: 33px;
+  }
+
+  &__loader {
+    @include absolute($t: 0, $l: 0, $r: 0, $b: 0, $z: 202);
+    @include flex($jc: center);
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  &-toggler {
+    cursor: pointer;
+  }
+}
+
+@keyframes showModal {
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes hideModal {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: -100%;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showPopup {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

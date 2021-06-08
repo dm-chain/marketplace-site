@@ -1,0 +1,12 @@
+.details {
+  @include flex($fd: column, $ai: flex-start);
+  margin-top: -28px;
+
+  &:not(:first-child) {
+    margin-top: 0;
+  }
+
+  &__item {
+    margin-top: 28px;
+  }
+}

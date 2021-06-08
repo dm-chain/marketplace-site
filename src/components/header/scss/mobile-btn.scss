@@ -1,0 +1,33 @@
+@import "./_theme";
+
+.mobile-btn {
+  padding: 5px;
+  height: 36px;
+  width: 36px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin-right: -4px;
+  transition: margin-top $t-std;
+
+  @include media-lg {
+    display: none;
+    margin-right: -11px;
+  }
+
+  &__bar {
+    width: 24px;
+    height: 2px;
+    display: block;
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @each $mod, $data in $theme {
+      &--#{$mod} {
+        background: map-get($data, 'bar');
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.timer {
+  padding: 16px 16px 16px 24px;
+  background-color: $c-brand;
+  border-radius: $br-lg;
+  margin-top: 32px;
+
+  &--sm {
+    padding: 8px 16px;
+  }
+
+  &__row {
+    @include flex($ai: flex-start, $jc: space-between);
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  &__title {
+    @include font($fs: 10px, $lh: 1.4);
+    text-transform: uppercase;
+    @include flex($jc: space-between);
+  }
+
+  &__value {
+    @include font($fs: 18px, $lh: 1.4, $fw: 600);
+  }
+
+  &__col {
+    width: 50px;
+    margin-right: 10px;
+
+    @include media-xs {
+      margin-right: 24px;
+    }
+
+    &--sm {
+      margin-right: 8px;
+    }
+  }
+}

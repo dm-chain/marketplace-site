@@ -1,0 +1,64 @@
+.search {
+  position: relative;
+
+  &__input {
+    padding: 10px 16px 10px 32px;
+    @include font($fs: 14px, $lh: 1.6);
+    background: transparent;
+    border: 1px solid $c-text;
+    border-radius: $br-lg;
+    outline: none;
+    height: 36px;
+    width: 320px;
+    transition: all $t-std;
+
+    @include hover {
+      background-color: rgba($c-white, 0.25);
+    }
+
+    &:active {
+      background-color: rgba($c-white, 0.25);
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgba($c-text, 0.5);
+    }
+
+    @include media-xxl {
+      width: 400px;
+    }
+  }
+
+  &__label {
+    @include absolute($t: 10px, $l: 8px);
+    width: 16px;
+    height: 16px;
+    background-image: url('../../../../resources/img/search.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 0;
+  }
+
+  &__menu {
+    @include absolute($t: calc(100% + 1px), $z: 400);
+    @include invisible;
+    border: 1px solid $c-text;
+    border-radius: $br-lg;
+    background-color: $c-light-bg;
+    width: 320px;
+
+    @include media-xxl {
+      width: 400px;
+    }
+
+    &.show {
+      @include visible;
+      animation: fadeInBottom 0.3s ease forwards;
+    }
+  }
+}

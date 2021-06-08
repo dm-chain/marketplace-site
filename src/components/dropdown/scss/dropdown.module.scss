@@ -1,0 +1,105 @@
+.dropdown {
+  position: relative;
+
+  &__menu {
+    @include absolute($t: calc(100% + 8px), $z: 400);
+    @include invisible;
+    border: 1px solid $c-text;
+    border-radius: $br-lg;
+    background-color: $c-light-bg;
+
+    &--right {
+      right: 0;
+    }
+
+    &--left {
+      left: 0;
+    }
+
+    &.show {
+      @include visible;
+      animation: fadeInBottom 0.3s ease forwards;
+    }
+
+    &--account {
+      width: 200px;
+      background-color: $c-light-bg;
+      left: 0;
+      right: auto;
+
+      @include media-sm {
+        right: 0;
+        left: auto;
+      }
+    }
+
+    &--share {
+      width: 202px;
+      background-color: $c-light-bg;
+    }
+  }
+
+  &__toggler {
+    @include flex;
+  }
+
+  &__header {
+    padding: 16px;
+    @include flex($jc: space-between, $ai: flex-end);
+    border-bottom: 1px solid $c-disabled-text;
+  }
+
+  &__item {
+    @include flex;
+    @include font($fs: 14px, $lh: 1.4, $fw: 500);
+
+    &--balance {
+      @include font($fs: 10px, $lh: 1.7, $fw: 400);
+    }
+
+    &--light {
+      font-weight: normal;
+    }
+  }
+
+  &__main {
+    padding: 8px 0;
+
+    &--share {
+      padding: 16px;
+    }
+  }
+
+  &__list-item {
+    padding: 8px 16px;
+    display: block;
+    @include font($fs: 14px, $lh: 1.4, $fw: 500, $c: $c-text);
+
+    @include hover {
+      background-color: $c-text-05;
+      color: $c-text;
+    }
+
+    &:visited {
+      color: $c-text;
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid $c-disabled-text;
+    padding: 16px;
+    @include flex;
+  }
+}
+
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

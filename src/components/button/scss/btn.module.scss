@@ -1,0 +1,64 @@
+.btn {
+  @include relative;
+  @include flex($jc: center, $fs: 0);
+  display: inline-flex;
+  @include font($ls: 0.02em, $fw: 500);
+  border-radius: $br-lg;
+  text-transform: capitalize;
+  text-decoration: none;
+  border: none;
+  box-shadow: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border $t-std, background-color $t-std, box-shadow $t-std;
+  @include outline;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &--icon {
+    &.btn--sm {
+      padding: 10px;
+    }
+
+    .btn__icon {
+      margin: 0;
+    }
+  }
+
+  &--link {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &__icon {
+    @include flex($ai: center);
+    &--right {
+      margin-left: 8px;
+    }
+
+    &--left {
+      margin-right: 8px;
+    }
+
+    &--sign-in {
+      border-left: 1px solid $c-text;
+      height: 100%;
+      padding: 0 16px;
+    }
+  }
+
+  span {
+    z-index: 1;
+  }
+}
+
+@import 'button-types';
+@import 'button-sizes';

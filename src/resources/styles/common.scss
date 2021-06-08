@@ -1,0 +1,192 @@
+html,
+body {
+  height: 100%;
+  background-color: $c-light-bg;
+}
+
+body {
+  @include font($ff: $f-main, $fs: 16px, $lh: 1.78, $fw: 400, $c: $c-text, $ls: normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  overflow-x: hidden;
+
+  &.modal-open {
+    overflow: hidden;
+
+    &:before {
+      content: none;
+    }
+  }
+
+  &.lightbox-open {
+    overflow: hidden;
+
+    section {
+      position: relative;
+      z-index: -1;
+    }
+
+    header {
+      z-index: -1;
+    }
+  }
+
+  &.ios-browser {
+    input,
+    select,
+    textarea {
+      font-size: inherit !important;
+    }
+  }
+}
+
+a {
+  color: $c-text;
+  text-decoration: none;
+  transition: color $t-std, border-color $t-std;
+  //@include outline;
+
+  @include hover {
+    color: $c-brand;
+  }
+
+  &:active {
+    color: $c-brand;
+  }
+
+  &:visited {
+    //color: inherit;
+  }
+}
+
+button {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  @include outline;
+
+  @include hover {
+    cursor: pointer;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  @include outline;
+}
+
+/* Для Chrome */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Для Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+}
+
+input[type='range']:focus {
+  outline: none;
+}
+
+input[type='range']::-moz-focus-outer {
+  border: 0;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+nav {
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: inherit;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include media-xs {
+    width: 540px;
+  }
+
+  @include media-sm {
+    width: 730px;
+    padding: 0 15px;
+  }
+
+  @include media-md {
+    width: 830px;
+  }
+
+  @include media-lg {
+    width: 1010px;
+  }
+
+  @include media-xl {
+    width: 1220px;
+  }
+}
+
+@keyframes showBg {
+  0% {
+    background: white;
+  }
+
+  100% {
+    background: rgba($c-text, 0.5);
+  }
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  background-color: $c-light-bg;
+  min-height: 100%;
+}
+
+footer {
+  flex: 0 0 auto;
+}

@@ -1,0 +1,62 @@
+.token-info {
+  &__title {
+    @include font($fs: 32px, $lh: 1.2, $fw: 500);
+    margin-bottom: 16px;
+
+    @include media-sm {
+      @include font($fs: 44px, $lh: 1.1);
+    }
+  }
+
+  &__description {
+    @include font($fs: 14px, $lh: 1.6);
+
+    @include media-sm {
+      @include font($fs: 18px, $lh: 1.4);
+    }
+  }
+
+
+  &__buttons {
+    @include flex($fd: column, $ai: stretch);
+    margin-top: 32px;
+
+    @include media-sm {
+      flex-direction: row;
+    }
+
+    &--col {
+      display: block;
+    }
+  }
+
+  &__buttons-item {
+    @include media-sm {
+      flex: 1;
+    }
+
+    &:not(:first-child) {
+      margin-top: 16px;
+
+      @include media-sm {
+        margin-top: 0;
+        margin-left: 24px;
+      }
+    }
+
+    &--col {
+      width: 100%;
+
+      &:not(:first-child) {
+        margin-top: 16px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__conditions {
+    margin-top: 16px;
+    text-transform: uppercase;
+    @include font($fs: 10px, $lh: 1.4);
+  }
+}

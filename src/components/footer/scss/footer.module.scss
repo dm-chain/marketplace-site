@@ -1,0 +1,116 @@
+.footer {
+  background-color: $c-text;
+  color: $c-text-secondary;
+  @include font($fs: 14px, $lh: 1.6);
+  opacity: 0;
+  animation: fadeIn 0.3s 0.3s ease forwards;
+  flex: 0 0 auto;
+
+  &__logo {
+    svg path {
+      fill: $c-white;
+    }
+  }
+
+  &__row {
+    padding: 80px 0;
+    display: flex;
+  }
+
+  &__col {
+    display: none;
+
+    @include media-sm {
+      width: 300px;
+      padding-right: 40px;
+      @include flex($fd: column, $jc: space-between, $ai: flex-start);
+    }
+
+    @include media-md {
+      width: 480px;
+    }
+  }
+
+  &__menu {
+    width: 100%;
+    column-count: 2;
+    column-gap: 20px;
+    margin-top: -35px;
+
+    @include media-sm {
+      width: auto;
+      margin-top: -65px;
+    }
+
+    @include media-lg {
+      column-count: 4;
+    }
+
+    @include media-xl {
+      column-gap: 0;
+      margin-top: 0;
+      @include flex($jc: space-between, $ai: flex-start);
+    }
+  }
+
+  &__menuItem {
+    break-inside: avoid;
+    padding-top: 35px;
+
+    @include media-sm {
+      min-width: 160px;
+      padding-top: 65px;
+    }
+
+    @include media-xl {
+      padding-top: 0;
+    }
+
+    &:not(:first-child) {
+      @include media-lg {
+        margin-top: 0;
+      }
+
+      @include media-xl {
+        margin-top: 0;
+        margin-left: 20px;
+      }
+
+      @include media-xxl {
+        margin-left: 80px;
+      }
+    }
+  }
+
+  &__menuTitle {
+    @include font($fs: 18px, $lh: 1.4, $c: $c-white);
+  }
+
+  &__menuItems {
+    margin-top: 16px;
+  }
+
+  &__menuLink {
+    a {
+      color: $c-text-secondary;
+
+      @include hover {
+        color: $c-white;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

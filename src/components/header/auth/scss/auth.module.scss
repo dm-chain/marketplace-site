@@ -1,0 +1,67 @@
+.auth {
+  @include flex();
+
+  &__money {
+    @include font($fs: 14px, $lh: 1.4, $fw: 500);
+    display: none;
+
+    @include media-xs {
+      display: block;
+      padding-right: 32px;
+    }
+  }
+
+  &__avatar {
+    padding: 0;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    position: relative;
+    background-color: $c-brand;
+
+    &:before {
+      @include absolute($t: 0, $l: 0, $r: 0, $b: 0);
+      content: '';
+      background-color: transparent;
+      transition: background-color $t-std;
+      border-radius: 50%;
+    }
+
+    @include hover {
+      &:before {
+        background: rgba($c-text, 0.35);
+      }
+    }
+
+    &:focus {
+      &:before {
+        background: rgba($c-text, 0.35);
+      }
+    }
+
+    img {
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__notifications {
+    margin-left: 16px;
+  }
+
+  &__dropdown {
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  &__btn {
+    display: none;
+    margin-right: 32px;
+
+    @include media-sm {
+      display: flex;
+    }
+  }
+}

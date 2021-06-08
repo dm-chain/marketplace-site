@@ -1,0 +1,97 @@
+.tags {
+  @include flex($ai: flex-start, $fw: wrap);
+  margin-left: -8px;
+  margin-top: -5px;
+
+  &__tag {
+    @include flex;
+
+    &:focus,
+    &:focus-visible {
+      box-shadow: none;
+    }
+
+    &--row {
+      margin-left: 8px;
+      margin-top: 8px;
+    }
+  }
+
+  &__item {
+    @include font($fs: 14px, $lh: 1.4, $fw: 500);
+    padding: 8.5px 16px;
+    border-radius: $br-lg;
+    @include flex($ai: center, $jc: center);
+    text-transform: capitalize;
+
+    &--light {
+      color: $c-text;
+      background-color: $c-text-05;
+    }
+
+    &--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:not([disabled]) {
+      + .tags__item {
+        &--light {
+          @include hover {
+            background-color: rgba($c-text, 0.1);
+          }
+
+          &:active {
+            background-color: $c-text;
+            color: $c-white;
+          }
+        }
+      }
+    }
+  }
+
+  &__input {
+    &:not([disabled]) {
+      + .tags__item {
+        cursor: pointer;
+        position: relative;
+        transition: background-color $t-std, color $t-std, box-shadow $t-std;
+      }
+
+      &:focus {
+        box-shadow: none;
+
+        + .tags__item {
+          box-shadow: 0 0 0 3px rgba($c-text, 0.35);
+          background-color: rgba($c-text, 0.1);
+        }
+      }
+
+      &:checked {
+        &:focus {
+          + .tags__item {
+            background-color: $c-hover;
+          }
+        }
+
+        + .tags__item {
+          background-color: $c-text;
+          color: $c-white;
+
+          @include hover {
+            background-color: $c-hover;
+          }
+
+
+          &:active {
+            color: $c-text;
+            background-color: $c-text-05;
+          }
+        }
+      }
+    }
+  }
+}

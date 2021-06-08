@@ -1,0 +1,103 @@
+.radio-collection {
+  &__item {
+    @include flex;
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+
+    &-wrapper {
+      width: 100%;
+
+      &--disabled {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__label {
+    padding: 7px 8px;
+    border: 1px solid $c-text;
+    border-radius: $br-lg;
+    @include flex;
+    width: 100%;
+    transition: background-color $t-std, color $t-std;
+    cursor: pointer;
+    height: 52px;
+
+    &--btn {
+      padding: 6px;
+    }
+
+    &--disabled {
+      border-color: $c-disabled-text;
+      color: $c-disabled-text;
+    }
+  }
+
+  &__label-img {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $br-lg;
+    }
+  }
+
+  &__label-text {
+    @include font($fs: 14px, $lh: 1.6);
+    margin-left: 8px;
+    margin-right: 40px;
+  }
+
+  &__input {
+    display: none;
+
+    &:checked {
+      + .radio-collection__label {
+        position: relative;
+        background-color: $c-text;
+        color: $c-white;
+
+        &:before {
+          content: '';
+          @include absolute($t: 13px, $r: 14px);
+          height: 24px;
+          width: 24px;
+          background-color: $c-brand;
+          border-radius: 50%;
+        }
+
+        &:after {
+          content: '';
+          @include absolute($t: 21px, $r: 21px);
+          width: 12px;
+          height: 9px;
+          background-image: url('../../../resources/img/check-dark.svg');
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+
+  &__add-btn {
+    @include flex($jc: center);
+    width: 38px;
+    height: 38px;
+    background-color: rgba($c-text, 0.1);
+    border-radius: $br-lg;
+
+    &--disabled {
+      background-color: $c-text-05;
+
+      svg path {
+        stroke: $c-disabled-text;
+      }
+    }
+  }
+}

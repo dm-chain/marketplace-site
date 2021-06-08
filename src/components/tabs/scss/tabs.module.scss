@@ -1,0 +1,105 @@
+.tabs {
+  @include flex($fd: column, $ai: flex-start);
+
+  &__controls {
+    @include flex;
+    border-radius: $br-lg;
+    border: 1px solid $c-text;
+    background-color: $c-light-bg;
+  }
+
+  &__control {
+    @include font($fs: 14px, $lh: 1.4, $c: $c-text);
+    padding: 6px 10px;
+    transition: background-color $t-std, color $t-std;
+
+    @include media-xs {
+      padding: 8px 16px;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid $c-text;
+    }
+
+    @include hover {
+      background-color: rgba($c-text, 0.05);
+    }
+
+    &:active {
+      background-color: rgba($c-text, 0.1);
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &--active {
+      background-color: $c-text;
+      color: $c-white;
+
+      @include hover {
+        background-color: $c-hover;
+      }
+
+      &:active {
+        background-color: $c-dark;
+      }
+    }
+  }
+
+  &__body {
+    width: 100%;
+    margin-top: 25px;
+
+    &--wide {
+      @include media-sm {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  &__pane {
+    @include absolute($t: 0, $r: 0, $l: 0);
+    @include invisible();
+
+    &--active {
+      position: static;
+      @include visible();
+      animation: fadeInBottom 0.3s backwards;
+
+      @include media-lg {
+        animation: fadeInRight 0.3s backwards;
+      }
+    }
+
+    &--wide {
+      &.tabs__pane--active {
+        animation: fadeInBottom 0.3s backwards;
+      }
+    }
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "ignorePatterns": ["src/js/vendor/*", "public/*"],
+  "env": {
+    "es6": true,
+    "amd": true,
+    "node": true,
+    "browser": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1, "VariableDeclarator": 1 }],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "no-console": "off",
+    "no-undef": "off",
+    "constructor-super": "off",
+    "no-prototype-builtins": "off"
+  },
+  "globals": {
+    "JSX": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  },
+  "plugins": ["@typescript-eslint"]
+}

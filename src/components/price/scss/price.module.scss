@@ -1,0 +1,32 @@
+.price {
+  margin-top: 32px;
+
+  &__above {
+    @include flex;
+    text-transform: uppercase;
+    @include font($fs: 10px, $lh: 1.4);
+  }
+
+  &__above-person {
+    margin-left: 5px;
+  }
+
+  &__row {
+    margin-top: 5px;
+    @include flex($ai: flex-start);
+  }
+
+  &__value,
+  &__currency {
+    @include font($fs: 32px, $lh: 1.1, $fw: 500, $ls: -0.02em);
+  }
+
+  &__currency {
+    margin-left: 4px;
+  }
+
+  &__additional {
+    margin-left: 8px;
+    @include font($fs: 14px, $lh: 1.6);
+  }
+}

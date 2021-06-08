@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include media-xs {
+    width: 540px;
+  }
+
+  @include media-sm {
+    width: 730px;
+    padding: 0 15px;
+  }
+
+  @include media-md {
+    width: 730px;
+  }
+
+  @include media-lg {
+    width: 1090px;
+  }
+
+  @include media-xl {
+    width: 1300px;
+  }
+
+  @include media-xxl {
+    width: 1450px;
+  }
+
+  &--flex {
+    @include flex($fd: column, $ai: stretch);
+  }
+
+  &--mob-p-0 {
+    @media (max-width: 768px) {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  &--divided {
+    width: 100%;
+    padding: 0;
+
+    @include media-lg {
+      width: 970px;
+      padding: 0 20px;
+    }
+  }
+
+  &--sm {
+    @include media-lg {
+      width: 980px;
+      padding: 0 20px;
+    }
+  }
+}

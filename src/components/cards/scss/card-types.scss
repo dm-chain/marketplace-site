@@ -1,0 +1,29 @@
+.card {
+  &--link {
+    position: relative;
+    transition: background-color $t-std;
+    text-decoration: none;
+    color: $c-text;
+    cursor: pointer;
+
+    @include hover {
+      &:before {
+        background: $c-brand;
+      }
+    }
+  }
+
+  @include hover {
+    .card__content img {
+      transform: scale(1.1);
+    }
+  }
+
+  &:before {
+    @include absolute($l: 0, $r: 0, $b: 0, $t: 0);
+    content: '';
+    background: $c-light-bg;
+    transition: background-color $t-std;
+    z-index: -1;
+  }
+}

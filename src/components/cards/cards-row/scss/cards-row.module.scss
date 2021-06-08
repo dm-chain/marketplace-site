@@ -1,0 +1,64 @@
+.cards-row {
+  @include flex($ai: stretch);
+  position: relative;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: -20px;
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--wrapped {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    margin: 0 10px 20px;
+    width: 100%;
+  }
+
+  @mixin card-width($width) {
+
+    .card {
+      width: calc(#{$width} - 20px);
+    }
+  }
+
+  @each $media, $val in ('xs': '576', 'sm':'768', 'md':'992', 'lg':'1200', 'xl':'1400', 'xxl':'1680') {
+
+    &--#{$media}-1 {
+      @include media(#{$val}) {
+        @include card-width('100%');
+      }
+    }
+
+    &--#{$media}-2 {
+      @include media(#{$val}) {
+        @include card-width('50%');
+      }
+    }
+
+    &--#{$media}-3 {
+      @include media(#{$val}) {
+        @include card-width('33.333333%');
+      }
+    }
+
+    &--#{$media}-4 {
+      @include media(#{$val}) {
+        @include card-width('25%');
+      }
+    }
+
+    &--#{$media}-5 {
+      @include media(#{$val}) {
+        @include card-width('20%');
+      }
+    }
+  }
+}
+
+.load-more {
+  margin-top: 32px;
+}

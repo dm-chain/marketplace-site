@@ -1,0 +1,248 @@
+/* critical:start */
+.btn {
+  &--full {
+    color: $c-white;
+    background-color: $c-text;
+
+    &:before {
+      @include absolute($l: auto, $r: auto, $b: 0, $t: 0);
+      border-radius: 5px;
+      content: '';
+      background: $c-hover;
+      transform-origin: center;
+      z-index: 0;
+    }
+
+    &:not([disabled]) {
+
+      @include hover {
+        color: $c-white;
+        //background: $c-hover;
+
+        &:before {
+          animation: appearanceBg 0.2s ease forwards;
+        }
+      }
+
+      &:active,
+      &:focus {
+        color: $c-white;
+        background-color: $c-dark;
+      }
+    }
+
+    &:visited {
+      color: $c-white;
+    }
+
+    &[disabled] {
+      background-color: $c-disabled;
+      color: $c-disabled-text;
+    }
+  }
+
+  &--empty {
+    background: transparent;
+    color: $c-text;
+    border: 1px solid $c-text;
+
+    &:before {
+      @include absolute($l: auto, $r: auto, $b: 0, $t: 0);
+      content: '';
+      background: $c-text-05;
+      transform-origin: center;
+      z-index: 0;
+    }
+
+    &:not([disabled]) {
+      @include hover {
+        color: $c-text;
+        border-color: $c-text;
+
+        &:before {
+          animation: appearanceBg 0.2s ease forwards;
+        }
+      }
+
+      &:active,
+      &:focus {
+        color: $c-text;
+        background-color: $c-disabled;
+        border-color: $c-text;
+      }
+    }
+
+    &:visited {
+      color: $c-text;
+    }
+
+    &[disabled] {
+      color: $c-disabled-text;
+      border-color: $c-disabled-text;
+      @include svg-stroke($c-disabled-text);
+    }
+  }
+
+  &--light {
+    background: $c-light-bg;
+    color: $c-text;
+    border: 1px solid $c-light-bg;
+
+    &:before {
+      @include absolute($l: auto, $r: auto, $b: 0, $t: 0);
+      content: '';
+      background: $c-text-05;
+      transform-origin: center;
+      z-index: 0;
+    }
+
+    &:not([disabled]) {
+      @include hover {
+        color: $c-text;
+        border-color: $c-light-bg;
+
+        &:before {
+          animation: appearanceBg 0.2s ease forwards;
+        }
+      }
+
+      &:active,
+      &:focus {
+        color: $c-text;
+        background-color: $c-light-bg;
+        border-color: $c-light-bg;
+      }
+    }
+
+    &:visited {
+      color: $c-text;
+    }
+
+    &[disabled] {
+      color: $c-disabled-text;
+      border-color: $c-disabled-text;
+      @include svg-stroke($c-disabled-text);
+    }
+  }
+
+  &--like {
+    background: transparent;
+    color: $c-text;
+    border: 1px solid transparent;
+
+    &:not([disabled]) {
+      @include hover {
+        color: $c-text;
+        background: rgba($c-text, 0.05);
+
+        &:before {
+          animation: appearanceBg 0.2s ease forwards;
+        }
+      }
+
+      &:active,
+      &:focus {
+        color: $c-text;
+        background: rgba($c-text, 0.05);
+      }
+    }
+
+    &:visited {
+      color: $c-text;
+    }
+
+    &[disabled] {
+      color: $c-disabled-text;
+      background: transparent;
+      @include svg-stroke($c-disabled-text);
+    }
+  }
+
+  &--simple {
+    background: transparent;
+    color: $c-text;
+    border: 1px solid transparent;
+
+    @include hover {
+      color: $c-text;
+    }
+  }
+
+  &--group {
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &--range {
+    width: 36px;
+    height: 36px;
+    border-radius: $br-lg;
+
+    @include hover {
+      @include svg-fill($c-text);
+      background-color: rgba($c-brand, 0.15);
+    }
+
+    &:focus {
+      @include svg-fill($c-text);
+      background-color: rgba($c-brand, 0.25);
+    }
+
+    &[disabled] {
+      @include svg-fill($c-disabled-text);
+    }
+  }
+
+  &--prev,
+  &--next {
+
+    &.btn--sm {
+      padding: 0 14px;
+    }
+
+  }
+
+  &--prev {
+    .btn__icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--transform-right,
+  &--transform-left {
+    .btn__icon {
+      transition: transform $t-std;
+    }
+  }
+
+  &--transform-right {
+    @include hover {
+      .btn__icon {
+        transform: translateX(1.5px);
+      }
+    }
+  }
+
+  &--transform-left {
+    @include hover {
+      .btn__icon {
+        transform: rotate(180deg) translateX(1.5px);
+      }
+    }
+  }
+}
+
+@keyframes appearanceBg {
+  0% {
+    opacity: 0.5;
+    transform: scaleX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+    right: 1px;
+    left: 1px;
+  }
+}

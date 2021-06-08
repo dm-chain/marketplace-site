@@ -1,0 +1,66 @@
+.btn {
+  &--wide {
+    width: 100%;
+    height: 52px;
+    font-size: 14px;
+    padding: 0 24px;
+  }
+
+  &--xxs {
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0;
+  }
+
+  &--xs {
+    padding: 6px 4px;
+    height: 28px;
+  }
+
+  &--sm {
+    height: 36px;
+    font-size: 14px;
+    padding: 0 14px;
+  }
+
+  &--md {
+    height: 52px;
+    font-size: 14px;
+    padding: 0 24px;
+  }
+
+  &--circle {
+    border-radius: 50%;
+    @include flex($jc: center);
+
+    &:before {
+      border-radius: 50%;
+    }
+  }
+
+  &--circle-lg {
+    width: 64px;
+    height: 64px;
+  }
+
+  &--circle-sm {
+    width: 36px;
+    height: 36px;
+  }
+
+  &--circle-md {
+    width: 52px;
+    height: 52px;
+  }
+
+  &--sign-in {
+    justify-content: space-between;
+    padding: 0 0 0 24px;
+
+    span:not([class]) {
+      text-align: center;
+      flex: 1;
+    }
+  }
+}

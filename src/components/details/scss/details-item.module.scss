@@ -1,0 +1,41 @@
+.details-item {
+  &__title {
+    @include flex();
+    @include font($fs: 10px, $lh: 1.4);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+
+    &--lg {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__text {
+    @include font($fs: 14px, $lh: 1.6);
+  }
+
+  &__text-bold {
+    @include font($fs: 32px, $lh: 1.2, $fw: 500);
+  }
+
+  &__date {
+    margin-left: 16px;
+  }
+
+  &__price-row {
+    margin-top: 5px;
+    @include flex;
+  }
+
+  &__price-value {
+    @include font($fs: 14px, $lh: 1.6);
+
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+
+    &--bold {
+      font-weight: 600;
+    }
+  }
+}

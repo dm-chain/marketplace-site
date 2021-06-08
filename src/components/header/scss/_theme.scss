@@ -1,0 +1,14 @@
+$theme: (
+  brand: (
+    bg: $c-brand,
+    text: $c-text,
+    bar: $c-text,
+    border: $c-brand,
+  ),
+  light: (
+    bg: $c-light-bg,
+    text: $c-text,
+    bar: $c-text,
+    border: $c-disabled-text,
+  ),
+);

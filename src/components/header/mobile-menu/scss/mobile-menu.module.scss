@@ -1,0 +1,138 @@
+.mobile-wrapper {
+  display: none;
+}
+
+.mobile {
+  &-wrapper {
+    @include fixed($t: 0, $r: 0, $b: 0, $z: 900);
+    display: block;
+    width: 100%;
+    min-width: 320px;
+    visibility: hidden;
+    opacity: 0;
+
+    @include media-xs {
+      width: 496px;
+    }
+
+    @include media-lg {
+      display: none;
+    }
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+
+      .mobile-menu {
+        transform: none;
+      }
+
+      .mobile-overlay {
+        @include visible;
+      }
+    }
+  }
+
+  &-overlay {
+    @include fixed($t: 0, $b: 0, $l: 0, $r: 0);
+    @include invisible;
+    background: rgba($c-text, 0.9);
+  }
+
+  &-menu {
+    @include flex($fd: column, $ai: flex-start);
+    position: relative;
+    height: 100%;
+    flex-grow: 1;
+    transform: translate(100%, 0);
+    transition: transform .3s $easeOutExpo;
+    background-color: $c-light-bg;
+
+    &__close {
+      @include flex($ai: center, $jc: center);
+      @include absolute($t: 16.5px, $r: 20px, $z: 10);
+      padding: 3px;
+      @include svg-fill($c-text);
+      background: none;
+      border: none;
+
+      @include hover {
+        background: rgba($c-text, .05);
+      }
+
+      &:focus {
+        background: rgba($c-text, .05);
+      }
+
+      &:active {
+        background: rgba($c-text, .1);
+      }
+    }
+
+    &__header {
+      padding: 13px 74px 13px 20px;
+      width: 100%;
+      border-bottom: 1px solid $c-disabled-text;
+      @include flex;
+      height: 68px;
+
+      &--scrolled {
+        height: 64px;
+      }
+    }
+
+    &__header-item {
+      @include flex;
+
+      &:not(:first-child) {
+        margin-left: 16px;
+      }
+    }
+
+    &__body {
+      position: relative;
+      display: flex;
+      width: 100%;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    &__footer {
+      width: 100%;
+      padding: 30px 20px 28px;
+    }
+
+    &__list {
+      width: 100%;
+      margin-bottom: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__item {
+      border-bottom: 1px solid $c-disabled-text;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    &__link {
+      @include font($fs: 20px, $fw: 500, $c: $c-text, $lh: 1.2);
+      @include flex($jc: space-between);
+      padding: 18px 22px 18px 20px;
+
+      svg {
+        flex-shrink: 0;
+        transform: rotate(0);
+        transition: transform $t-std;
+      }
+
+      @include hover {
+        background-color: $c-text-05;
+        color: $c-text;
+      }
+    }
+
+  }
+}

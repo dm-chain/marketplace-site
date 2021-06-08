@@ -1,0 +1,141 @@
+.toggler {
+  &__input {
+    display: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:checked {
+      + .toggler__label {
+        &:before {
+          background-color: $c-text;
+          transition: background-color $t-fast 0.1s, border-color $t-fast 0.1s;
+        }
+
+        &:after {
+          background-color: $c-brand;
+          border-color: $c-text;
+          left: 10px;
+        }
+      }
+
+      &:not([disabled]) {
+        @include hover {
+          + .toggler__label {
+            &:after {
+              background-color: $c-white;
+            }
+          }
+        }
+
+        &:active {
+          + .toggler__label {
+            &:after {
+              background-color: $c-text-secondary;
+            }
+
+            &:before {
+              background-color: $c-text;
+            }
+          }
+        }
+      }
+
+      &:disabled {
+        + .toggler__label {
+          color: $c-text;
+
+          &:after {
+            border-color: $c-text-secondary;
+            background-color: $c-disabled-light;
+          }
+
+          &:before {
+            background-color: $c-text-secondary;
+          }
+        }
+      }
+    }
+
+    &:not([disabled]) {
+      @include hover {
+        + .toggler__label {
+          &:after {
+            border-color: $c-text;
+          }
+        }
+      }
+
+      &:active {
+        + .toggler__label {
+          &:after {
+            border-color: $c-text;
+            background-color: $c-disabled-light;
+          }
+
+          &:before {
+            //background-color: $c-disabled-text;
+          }
+        }
+      }
+
+      &:focus {
+        + .toggler__label {
+          &:after {
+            box-shadow: $o-std;
+          }
+        }
+      }
+    }
+
+    &:disabled {
+      + .toggler__label {
+        color: $c-disabled-text;
+
+        &:after {
+          border-color: $c-text-secondary;
+          background-color: $c-light-bg;
+        }
+
+        &:before {
+          background-color: $c-text-secondary;
+        }
+      }
+    }
+  }
+
+  &__label {
+    padding-left: 34px;
+    position: relative;
+    @include font($fs: 14px, $lh: 1.4, $fw: 500);
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      @include absolute($t: 4px, $l: 0);
+      width: 26px;
+      height: 10px;
+      background-color: $c-text-secondary;
+      border-radius: 2000px;
+      transition: none;
+    }
+
+    &:after {
+      content: '';
+      @include absolute($t: 1px, $l: 0);
+      width: 16px;
+      height: 16px;
+      background-color: $c-light-bg;
+      border-radius: 50%;
+      border: 1px solid $c-disabled-text;
+      transition: background-color $t-std, border-color $t-std, left $t-std;
+    }
+
+    span {
+      display: block;
+      @include font($c: $c-disabled-text, $fw: 400);
+      margin-top: 4px;
+    }
+  }
+}

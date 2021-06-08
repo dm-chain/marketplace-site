@@ -1,0 +1,220 @@
+@import 'src/resources/styles/content';
+
+.page-divided {
+  opacity: 0;
+  animation: fadeIn 0.3s 0.3s ease forwards;
+  background-color: $c-light-bg;
+  position: relative;
+  flex: 1 0 0;
+  z-index: 1;
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include media-xs {
+    width: 540px;
+  }
+
+  @include media-sm {
+    width: 730px;
+    padding: 0 15px;
+  }
+
+  @include media-md {
+    width: 730px;
+  }
+
+  @include media-lg {
+    width: 980px;
+    padding: 0 20px;
+    @include flex($ai: stretch);
+  }
+
+  &--topline {
+    padding-top: 40px;
+  }
+
+  &__aside {
+    flex-shrink: 0;
+    padding-top: 108px;
+    width: 100%;
+    padding-right: 40px;
+    padding-bottom: 40px;
+
+    @include media-sm {
+      padding-top: 134px;
+    }
+
+    @include media-lg {
+      padding-top: 165px;
+      width: 300px;
+      border-right: 1px solid $c-disabled-text;
+      padding-bottom: 80px;
+    }
+
+    @include media-xl {
+      width: 350px;
+    }
+  }
+
+  &__aside-wrap {
+    @include sticky($t: 140px);
+  }
+
+  &__block {
+    padding-bottom: 80px;
+
+    @include media-lg {
+      padding-top: 165px;
+      padding-left: 40px;
+    }
+
+    @include media-xl {
+      padding-left: 130px;
+    }
+  }
+
+  &__title {
+    @include font($fs: 44px, $lh: 1.1, $fw: 500, $ls: -0.02em);
+    margin-bottom: 20px;
+  }
+
+  &__title-h2 {
+    @include font($fs: 32px, $lh: 1.2, $fw: 500, $ls: -0.02em);
+    margin-bottom: 32px;
+    max-width: 300px;
+
+    @include media(400) {
+      max-width: none;
+    }
+  }
+
+  &__select {
+    margin-top: 32px;
+
+    @include media-lg {
+      margin: 0;
+      display: none;
+    }
+  }
+
+  &__buttons {
+    margin-top: 32px;
+    display: flex;
+  }
+
+  &__button {
+    + .faq__button {
+      margin-left: 16px;
+    }
+  }
+
+  &__footer {
+    padding: 130px 0 0;
+  }
+
+  &__content {
+    margin-top: 16px;
+  }
+
+  /*
+
+  &:after {
+    @include absolute($b: 298px, $r: 0);
+    content: '';
+    height: 1px;
+    background: $c-disabled-text;
+    width: 100%;
+
+    @include media(400) {
+      bottom: 265px;
+    }
+
+    @include media-lg {
+      width: calc(50% + 170px)
+    }
+
+    @include media-xl {
+      width: calc(50% + 120px)
+    }
+  }
+
+  */
+}
+
+.tabs-controls {
+  display: none;
+
+  @include media-lg {
+    display: block;
+  }
+
+  &__item {
+    @include font($fs: 14px, $lh: 1.4, $fw: 500);
+    padding: 8px;
+    cursor: pointer;
+    border-radius: $br-lg;
+
+    @include hover {
+      background-color: $c-text-05;
+    }
+
+    &--active {
+      background-color: rgba($c-text, 0.1);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.tabs-content {
+  &__item {
+    display: none;
+
+    &--active {
+      display: block;
+      animation: fadeInBottom 0.3s backwards;
+
+      @include media-lg {
+        animation: fadeInRight 0.3s backwards;
+      }
+    }
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,161 @@
+.form {
+  width: 100%;
+
+  &__head {
+    margin-bottom: 60px;
+    @include font($fs: 36px, $lh: 1.28);
+
+    &.hide {
+      opacity: 0;
+      position: absolute;
+    }
+  }
+
+  &__wrap {
+    &.hide {
+      opacity: 0;
+      position: absolute;
+    }
+
+    &--group {
+      @include flex;
+
+      @include media-lg {
+        width: fit-content;
+      }
+    }
+  }
+
+  &__field {
+    & + & {
+      margin-top: 20px;
+
+      @include media-sm {
+        margin-top: 40px;
+      }
+    }
+    
+    &--label {
+      padding-top: 30px;
+    }
+
+    &--btn {
+      @include flex;
+
+      &:last-child {
+        margin-top: 20px;
+        padding-top: 0;
+
+        @include media-sm {
+          margin-top: 40px;
+        }
+      }
+    }
+
+    &--group {
+      padding-top: 0;
+      margin-top: 0!important;
+    }
+
+    &--disabled {
+      .form__field-suffix {
+        color: $c-disabled-text
+      }
+
+      .form__label {
+        color: $c-disabled-text
+      }
+    }
+  }
+
+
+  &__control {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &--file,
+    &--select {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  &__field-description {
+    @include font($fs: 14px, $lh: 1.6, $c: $c-disabled-text);
+    margin-top: 8px;
+    width: 100%;
+
+    b {
+      font-weight: 500;
+    }
+  }
+
+  &__field-suffix {
+    @include font($fs: 14px, $lh: 1.6, $fw: 600);
+    @include absolute($t: 16px, $r: 24px);
+    width: 100px;
+    text-align: right;
+
+    &--error {
+      color: $c-error;
+    }
+  }
+
+  &__label {
+    @include flex($ai: center);
+    @include absolute($t: -30px);
+    @include font($fs: 14px, $lh: 1.6, $fw: 600);
+    color: $c-text;
+
+    span {
+      color: $c-disabled-text;
+      margin-left: 4px;
+      font-weight: normal;
+    }
+  }
+
+  &__success {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+
+    @include media-md {
+      width: 390px;
+    }
+
+    &.show {
+      z-index: 200;
+      animation: fadeInUp 0.3s 0.3s ease forwards;
+    }
+
+    .btn {
+      margin-top: 60px;
+    }
+  }
+
+  &__success-msg {
+    margin-left: 20px;
+    animation: fadeIn $t-std;
+  }
+}
+
+.errorMsg {
+  @include font($fs: 10px, $c: $c-error);
+  white-space: nowrap;
+  animation: fadeIn $t-std;
+
+  @include media-sm {
+    font-size: 12px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,22 @@
+.bids {
+  &__text {
+    span {
+      display: block;
+    }
+
+    @include media-sm {
+      @include font($fs: 18px, $lh: 1.4);
+    }
+  }
+
+  &__title {
+    @include font($fs: 10px, $lh: 1.4);
+    text-transform: uppercase;
+    margin-top: 32px;
+  }
+
+  &__expired {
+    margin-top: 30px;
+    opacity: 0.5;
+  }
+}

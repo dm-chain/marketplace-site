@@ -1,0 +1,45 @@
+{
+  "_from": "freeton",
+  "_id": "freeton@0.7.0",
+  "_inBundle": false,
+  "_integrity": "sha512-xjJXC3YIVdfChblMxPpSACOFK65qtnueFTvtHPC6BCUqnY2xzvlvHqScbjsv00+6QfJq3Ki974WZEag/Sjduow==",
+  "_location": "/freeton",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "freeton",
+    "name": "freeton",
+    "escapedName": "freeton",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/freeton/-/freeton-0.7.0.tgz",
+  "_shasum": "46bafdc39084b8c29041b1d715c4ead4a62c5f31",
+  "_spec": "freeton",
+  "_where": "C:\\Users\\Ivan\\VisualStudioProjects\\grandbazar.io",
+  "author": {
+    "name": "qwertys318, maxvx"
+  },
+  "bugs": {
+    "url": "https://github.com/extraton/freeton/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Freeton package",
+  "homepage": "https://github.com/extraton/freeton#readme",
+  "license": "MIT",
+  "main": "src/index.mjs",
+  "name": "freeton",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/extraton/freeton.git"
+  },
+  "version": "0.7.0"
+}

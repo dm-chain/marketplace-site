@@ -1,0 +1,57 @@
+.radio {
+  display: flex;
+
+  &__item {
+    &:first-child {
+      .radio__label {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &:not(:last-child) {
+      .radio__label {
+        border-right: none;
+      }
+    }
+
+    &:last-child {
+      .radio__label {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked {
+      + .radio__label {
+        background-color: $c-text;
+        color: $c-white;
+
+        &--disabled {
+          background-color: $c-disabled-text;
+        }
+      }
+    }
+  }
+
+  &__label {
+    @include font($fs: 14px, $lh: 20px, $fw: 500);
+    cursor: pointer;
+    padding: 8px 15px;
+    border: 1px solid $c-text;
+    border-radius: $br-lg;
+    transition: background-color $t-std, color $t-std;
+    min-width: 106px;
+    text-align: center;
+
+    &--disabled {
+      pointer-events: none;
+      border-color: $c-disabled-text;
+      color: $c-disabled-text;
+    }
+  }
+}

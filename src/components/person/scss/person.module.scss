@@ -1,0 +1,113 @@
+.person {
+  @include flex($ai: center);
+  @include font($fs: 14px, $lh: 1.6);
+  vertical-align: middle;
+  display: inline-flex;
+  z-index: 3;
+
+  &--wide {
+    width: 100%;
+  }
+
+  &__info {
+    @include flex($ai: center);
+  }
+
+  &__img {
+    width: 36px;
+    height: 36px;
+    @include flex;
+    flex-shrink: 0;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    //&--owner {
+    //  transform: rotate(-45deg);
+    //  border-radius: $br-lg;
+    //  overflow: hidden;
+    //}
+
+    &--xs {
+      width: 22px;
+      height: 22px;
+    }
+
+    &--sm {
+      width: 22px;
+      height: 22px;
+    }
+
+    &--owner,
+    &--round,
+    &--creator {
+      border-radius: 50%;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    &--collection {
+      border-radius: $br-lg;
+
+      img {
+        border-radius: $br-lg;
+      }
+    }
+  }
+
+  &__name {
+    text-transform: none;
+    margin-left: 10px;
+    color: $c-text;
+    line-height: 1.2;
+
+    &--xs {
+      margin-left: 5px;
+      @include font($fs: 10px, $lh: 1);
+    }
+
+    &--sm {
+      margin-left: 5px;
+    }
+
+    &--link {
+      cursor: pointer;
+    }
+  }
+
+  &__text {
+    border-bottom: 1px solid transparent;
+    transition: border-color $t-std;
+  }
+
+  @include hover {
+    .person__text {
+      color: $c-text;
+      border-color: $c-text;
+    }
+  }
+
+  &__rating {
+    margin-left: auto;
+  }
+
+  &__imgs {
+    @include flex;
+    height: 40px;
+  }
+
+  &__imgsItem {
+    margin-left: -6px;
+    max-height: 40px;
+    @include flex;
+
+    img {
+      object-fit: contain;
+    }
+  }
+}
